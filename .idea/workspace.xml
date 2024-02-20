@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="ed2bc6f5-7d17-43bb-a168-502c34f0a277" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/card/infrastructure/database/data/card.json" beforeDir="false" afterPath="$PROJECT_DIR$/card/infrastructure/database/data/card.json" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 6
+}</component>
+  <component name="ProjectId" id="2cd94SIIwthMbHERP7irmebOF2B" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "/Users/gaelstervinou/Desktop/ESGI/5A/CleanCode/exam/leitner-system",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "ts.external.directory.path": "/Users/gaelstervinou/Desktop/ESGI/5A/CleanCode/exam/leitner-system/node_modules/typescript/lib",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="ed2bc6f5-7d17-43bb-a168-502c34f0a277" name="Changes" comment="" />
+      <created>1708430396762</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1708430396762</updated>
+      <workItem from="1708430397889" duration="133000" />
+      <workItem from="1708430532269" duration="397000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+    <option name="exactExcludedFiles">
+      <list>
+        <option value="$PROJECT_DIR$/user/interface/http/userRoutes.js" />
+        <option value="$PROJECT_DIR$/card/application/enum/categoryEnum.js" />
+        <option value="$PROJECT_DIR$/card/application/entity/card.js" />
+        <option value="$PROJECT_DIR$/card/application/service/getUserIdByToken.js" />
+        <option value="$PROJECT_DIR$/card/application/useCases/createCardWithUserIdUseCase.js" />
+        <option value="$PROJECT_DIR$/card/application/useCases/createCardUseCase.js" />
+        <option value="$PROJECT_DIR$/card/application/repository/cardRepository.js" />
+        <option value="$PROJECT_DIR$/user/interface/http/service/isValidLoginRequest.js" />
+        <option value="$PROJECT_DIR$/user/interface/http/service/isValidUserRequest.js" />
+        <option value="$PROJECT_DIR$/card/infrastructure/repository/jsonCardRepository.js" />
+        <option value="$PROJECT_DIR$/user/interface/controller/userController.js" />
+        <option value="$PROJECT_DIR$/user/application/repository/userRepository.js" />
+        <option value="$PROJECT_DIR$/user/tests/userController.test.js" />
+        <option value="$PROJECT_DIR$/card/interface/http/cardRoutes.js" />
+        <option value="$PROJECT_DIR$/card/interface/controller/cardController.js" />
+        <option value="$PROJECT_DIR$/card/infrastructure/port/getUserIdPort.js" />
+        <option value="$PROJECT_DIR$/card/infrastructure/adapter/getUserIdHttpAdapter.js" />
+        <option value="$PROJECT_DIR$/card/infrastructure/database/jsonHandler.js" />
+        <option value="$PROJECT_DIR$/user/application/usesCases/createUser.js" />
+        <option value="$PROJECT_DIR$/user/application/usesCases/loginUser.js" />
+        <option value="$PROJECT_DIR$/user/infrastructure/database/jsonHandler.js" />
+        <option value="$PROJECT_DIR$/user/infrastructure/repository/jsonUserRepository.js" />
+        <option value="$PROJECT_DIR$/card/interface/http/service/isValidCardUserData.js" />
+        <option value="$PROJECT_DIR$/card/application/dto/cardUserData.js" />
+        <option value="$PROJECT_DIR$/card/application/dto/card.js" />
+        <option value="$PROJECT_DIR$/user/application/dto/request/createUserRequest.js" />
+        <option value="$PROJECT_DIR$/user/application/dto/request/loginUserRequest.js" />
+        <option value="$PROJECT_DIR$/user/application/dto/request/createUserToDatabase.js" />
+        <option value="$PROJECT_DIR$/user/application/dto/request/loginUserToDatabase.js" />
+        <option value="$PROJECT_DIR$/index.js" />
+      </list>
+    </option>
+  </component>
+</project>
