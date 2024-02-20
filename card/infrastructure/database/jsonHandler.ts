@@ -1,6 +1,6 @@
 import * as fs from 'fs';
 import { v4 as uuidv4 } from 'uuid';
-import Card from "../../application/entity/card";
+import CardEntity from "../../application/entity/cardEntity";
 
 export const CARD_ENTITY_JSON_NAME = __dirname + '/data/card.json';
 export enum CreationStatus {
@@ -11,12 +11,12 @@ export class JsonHandler {
     getData(entity: typeof CARD_ENTITY_JSON_NAME, params: {
         attribute: string,
         value: string
-    }[]|null): any {
+    }[] | null): any {
         const data = JSON.parse(fs.readFileSync(entity, 'utf-8'));
         if (null === params) {
             return data;
         }
-        return data.filter((user: Card) => {
+        return data.filter((user: CardEntity) => {
             return params.every(param => {
                 // @ts-ignore
                 return user[param.attribute] === param.value;
@@ -24,7 +24,7 @@ export class JsonHandler {
         })
     }
 
-    createData(entity: typeof CARD_ENTITY_JSON_NAME, value: object): string|CreationStatus.ERROR {
+    createData(entity: typeof CARD_ENTITY_JSON_NAME, value: object): string | CreationStatus.ERROR {
         try {
             const data = this.getData(CARD_ENTITY_JSON_NAME, null)
             // @ts-ignore
@@ -33,6 +33,21 @@ export class JsonHandler {
             fs.writeFileSync(entity, JSON.stringify(data));
             // @ts-ignore
             return value.id;
+        } catch (e) {
+            return CreationStatus.ERROR;
+        }
+    }
+
+    updateData(entity: typeof CARD_ENTITY_JSON_NAME, value: object, cardId: string): CreationStatus.ERROR | string {
+        try {
+            const data = this.getData(CARD_ENTITY_JSON_NAME, null)
+            const index = data.findIndex((card: CardEntity) => card.id === cardId);
+            if (index === -1) {
+                return CreationStatus.ERROR;
+            }
+            data[index] = value;
+            fs.writeFileSync(entity, JSON.stringify(data));
+            return cardId;
         } catch (e) {
             return CreationStatus.ERROR;
         }
