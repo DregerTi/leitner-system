@@ -1,20 +1,22 @@
 import CardUserData from "../../application/dto/cardUserData";
-import { JsonCardRepository } from "../../infrastructure/repository/jsonCardRepository";
 import CreateCardUseCase from "../../application/useCases/createCardUseCase";
-import CreateCardWithUserIdUseCase from "../../application/useCases/createCardWithUserIdUseCase";
 import Card from "../../application/dto/card";
 import AnswerCardUseCase from "../../application/useCases/answerCardUseCase";
 import GetQuizzByDayUseCase from "../../application/useCases/getQuizzByDayUseCase";
+import GetCardsByTagsUseCase from "../../application/useCases/getCardsByTagsUseCase";
 
 export default class CardController {
     _createCardUseCase: CreateCardUseCase;
     _answerCardUseCase: AnswerCardUseCase;
     _quizzCardUseCase: GetQuizzByDayUseCase;
-    constructor(useCase: CreateCardUseCase, answerCardUseCase: AnswerCardUseCase, quizzCardUseCase: GetQuizzByDayUseCase) {
+    _cardsByTagsUseCase: GetCardsByTagsUseCase;
+    constructor(useCase: CreateCardUseCase, answerCardUseCase: AnswerCardUseCase,
+                quizzCardUseCase: GetQuizzByDayUseCase, cardsByTagsUseCase: GetCardsByTagsUseCase) {
         // @ts-ignore
         this._createCardUseCase = useCase;
         this._answerCardUseCase = answerCardUseCase;
         this._quizzCardUseCase = quizzCardUseCase;
+        this._cardsByTagsUseCase = cardsByTagsUseCase;
     }
     createCard(card: CardUserData, userToken: string): boolean | Card {
         const cardEntity = this._createCardUseCase.execute(card, { userToken: userToken });
@@ -38,5 +40,9 @@ export default class CardController {
 
     getQuizzCards(date: Date): Card[] {
         return this._quizzCardUseCase.execute(date);
+    }
+
+    getCardsByTags(tags: string[]): Card[] {
+        return this._cardsByTagsUseCase.execute(tags);
     }
 }

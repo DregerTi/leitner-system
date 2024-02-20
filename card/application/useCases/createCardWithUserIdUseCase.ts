@@ -9,7 +9,7 @@ export default class CreateCardWithUserIdUseCase implements CreateCardUseCase {
     constructor(cardRepository: CardRepository) {
         this._cardRepository = cardRepository;
     }
-    execute(card: CardUserData, opts: { userToken: string }): CardEntity | false {
+    execute(card: CardUserData, opts: {userToken: string}): CardEntity | false {
         const cardToDatabase = {
             question: card.question,
             answer: card.answer,
