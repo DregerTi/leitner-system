@@ -7,7 +7,7 @@ export enum CreationStatus {
     OK = 0,
     ERROR
 }
-export class JsonHandler {
+export default class JsonHandler {
     getData(entity: typeof CARD_ENTITY_JSON_NAME, params: {
         attribute: string,
         value: string,
@@ -28,6 +28,7 @@ export class JsonHandler {
         value: string,
     }[]): any {
         const data = JSON.parse(fs.readFileSync(entity, 'utf-8'));
+        if (params.length === 0) return data;
         return data.filter((user: CardEntity) => {
             return params.some(param => {
                 // @ts-ignore

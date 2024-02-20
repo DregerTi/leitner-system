@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Page</title>
+</head>
+<body>
+<h1>Quiz</h1>
+<button id="startQuizBtn">Start Quiz</button>
+<div id="quizContainer" style="display: none;">
+
+</div>
+
+<h1>Cards</h1>
+<button id="cardsBtn">Search Cards</button> <input type="text" id="tags" value=""/>
+<div id="cardsContainer" style="display: none;">
+</div>
+
+<h1>Create Card</h1>
+<form id="create-card">
+    <label for="question">Question</label>
+    <textarea id="question" name="question" required></textarea>
+    <label for="answer">Answer</label>
+    <textarea id="answer" name="answer" required></textarea>
+    <label for="tag">Tag</label>
+    <textarea id="tag" name="tag"></textarea>
+
+    <button type="submit">Create Card</button>
+</form>
+
+<script>
+    const BASE_URL = 'http://127.0.0.1:3000/';
+    const GET_CARDS_BY_TAGS_URL = (queryParamsString) => queryParamsString ? `${BASE_URL}cards?${queryParamsString}` : `${BASE_URL}cards`;
+    const CREATE_CARD_URL = `${BASE_URL}cards`;
+    const ANSWER_CARD_URL = (cardId) => `${BASE_URL}cards/${cardId}/answer`;
+    const GET_QUIZ_URL = `${BASE_URL}cards/quizz`;
+
+    document.getElementById('startQuizBtn').addEventListener('click', startQuiz);
+
+    async function startQuiz() {
+        try {
+            const response = await fetch(GET_QUIZ_URL);
+            const data = await response.json();
+            displayQuestions(data);
+        } catch (error) {
+            console.error('Error fetching quiz questions:', error);
+        }
+    }
+
+    function displayQuestions(questions) {
+        const quizContainer = document.getElementById('quizContainer');
+        quizContainer.innerHTML = ''; // Clear previous questions
+        questions.forEach((question, index) => {
+            const questionForm = document.createElement('form');
+            const submitButton = document.createElement('button');
+            submitButton.textContent = 'Submit';
+
+            questionForm.addEventListener('submit', function (event) {
+                submitAnswer(event, question.question, index, question.id, true);
+            });
+
+            const questionLabel = document.createElement('label');
+            questionLabel.textContent = question.question;
+            questionForm.appendChild(questionLabel);
+            const inputField = document.createElement('input');
+            inputField.type = 'text';
+            inputField.name = `answer${index}`;
+            inputField.placeholder = `Answer ${index + 1}`;
+            const answerInput = document.createElement('input');
+            answerInput.type = 'hidden';
+            answerInput.name = `correct-answer-${index}`;
+
+            const forceCorrectButton = document.createElement('button');
+            forceCorrectButton.textContent = 'Force Correct Answer';
+            forceCorrectButton.addEventListener('click', function () {
+                answerQuestionFetch(question.id, true);
+            });
+
+            questionForm.appendChild(inputField);
+            questionForm.appendChild(answerInput);
+            questionForm.appendChild(submitButton);
+            questionForm.appendChild(document.createElement('br'));
+            quizContainer.appendChild(questionForm);
+            quizContainer.appendChild(forceCorrectButton);
+        });
+
+        // Show the quiz container
+        document.getElementById('quizContainer').style.display = 'block';
+    }
+
+    async function submitAnswer(event, correctAnswer, questionIndex, cardId) {
+        event.preventDefault(); // Prevent default form submission
+
+        const formData = new FormData(event.target);
+        const userAnswer = formData.get(`answer${questionIndex}`);
+
+        try {
+            const isValid = userAnswer.toLowerCase() === correctAnswer.toLowerCase();
+            if (isValid) {
+                alert('Correct!' +
+                    '\n\n' +
+                    'The correct answer is: ' + correctAnswer
+                );
+            } else {
+                alert('Incorrect!' +
+                    '\n\n' +
+                    'The correct answer is: ' + correctAnswer +
+                    '\n\n' +
+                    'You answered: ' + userAnswer);
+            }
+
+            await answerQuestionFetch(cardId, isValid);
+        } catch (error) {
+            console.error('Error submitting answer:', error);
+        }
+    }
+
+    async function answerQuestionFetch(cardId, isValid = false) {
+        try {
+            await fetch(ANSWER_CARD_URL(cardId), {
+                method: 'PATCH',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    isValid
+                })
+            });
+        } catch (error) {
+            console.error('Error submitting answer:', error);
+        }
+    }
+
+    document.getElementById('cardsBtn').addEventListener('click', getCards);
+
+    async function getCards() {
+        try {
+            const tagSearch = document.getElementById('tags').value;
+            const tagValues = tagSearch.length > 0 ? tagSearch.split(',') : null;
+            const tagsAsQueryParamsString = tagValues ? tagValues.map(tag => 'tag=' + tag).join('&') : null;
+            const response = await fetch(GET_CARDS_BY_TAGS_URL(tagsAsQueryParamsString));
+            const data = await response.json();
+            displayCards(data);
+        } catch (error) {
+            console.error('Error fetching cards:', error);
+        }
+    }
+
+    function displayCards(cards) {
+        const cardsContainer = document.getElementById('cardsContainer');
+        cardsContainer.innerHTML = ''; // Clear previous cards
+        cards.forEach((card) => {
+            const cardDiv = document.createElement('div');
+            cardDiv.textContent = `Card ${card.id}`;
+
+            cardDiv.appendChild(createTextArea('question', card.question));
+            cardDiv.appendChild(createTextArea('answer', card.answer));
+            cardDiv.appendChild(createTextArea('tag', card.tag));
+            cardDiv.appendChild(createTextArea('category', card.category))
+            cardsContainer.appendChild(cardDiv);
+            cardsContainer.appendChild(document.createElement('br'));
+        });
+
+        document.getElementById('cardsContainer').style.display = 'block';
+    }
+
+    function createTextArea(label, text) {
+        const textArea = document.createElement('textarea');
+        textArea.textContent = text;
+        textArea.readOnly = true;
+        const labelElement = document.createElement('label');
+        labelElement.textContent = label;
+        const div = document.createElement('div');
+        div.appendChild(labelElement);
+        div.appendChild(textArea);
+        return div;
+    }
+
+    document.getElementById('create-card').addEventListener('submit', function (event) {
+        createCard(event);
+    });
+
+    function createCard(event) {
+        event.preventDefault();
+
+        const formData = new FormData(event.target);
+        const question = formData.get('question');
+        const answer = formData.get('answer');
+        const tag = formData.get('tag');
+
+        fetch(CREATE_CARD_URL, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                question,
+                answer,
+                tag
+            })
+        })
+    }
+
+</script>
+</body>
+</html>

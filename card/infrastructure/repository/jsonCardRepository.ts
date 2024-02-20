@@ -1,4 +1,4 @@
-import { CARD_ENTITY_JSON_NAME, CreationStatus, JsonHandler } from "../database/jsonHandler";
+import JsonHandler, { CARD_ENTITY_JSON_NAME, CreationStatus } from "../database/jsonHandler";
 import CardRepository from "../../application/repository/cardRepository";
 import CardUserData from "../../application/dto/cardUserData";
 import {getUserIdByToken} from "../../application/service/getUserIdByToken";
@@ -57,7 +57,6 @@ export class JsonCardRepository implements CardRepository {
     }
 
     getCardsByTags(tags: string[]): CardEntity[] {
-
         const cards = this._jsonHandler.getDataByOr(CARD_ENTITY_JSON_NAME, tags.map(tag => {
             return {
                 attribute: "tag",

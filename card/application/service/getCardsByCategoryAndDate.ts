@@ -23,7 +23,8 @@ export default class GetCardsByCategoryAndDate {
                     return true;
                 }
                 const lastAnswerDate = new Date(card.lastAnswerDateToString);
-                if (category === card.category && lastAnswerDate.getDate() + numberOfDaysRequiredToAsk === date.getDate()) {
+                //check if the card has been answered in the last 2^i days
+                if (category === card.category && this.addDays(lastAnswerDate, numberOfDaysRequiredToAsk).getTime() <= date.getTime()) {
                     return true;
                 }
             }));
@@ -44,5 +45,11 @@ export default class GetCardsByCategoryAndDate {
         });
 
         return res;
+    }
+
+    addDays(date: Date, days: number): Date {
+        let result = new Date(date);
+        result.setDate(result.getDate() + days);
+        return result;
     }
 }

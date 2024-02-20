@@ -20,5 +20,5 @@ export class EnumX {
 }
 
 export const getNextCategoryEnumValue = (category: CategoryEnum): CategoryEnum => {
-    return EnumX.of(CategoryEnum).next(category);
+    return EnumX.of(CategoryEnum).next(category) ?? CategoryEnum.DONE;
 }

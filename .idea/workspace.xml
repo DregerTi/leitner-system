@@ -5,23 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ed2bc6f5-7d17-43bb-a168-502c34f0a277" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/card/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/card/application/dto/quizzByDay.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/card/application/useCases/getCardsByTagsUseCase.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/card/getCardsByDay.test.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/front/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/card/application/dto/QuizzByDay.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/card/application/entity/cardEntity.ts" beforeDir="false" afterPath="$PROJECT_DIR$/card/application/entity/cardEntity.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/card/application/repository/cardRepository.ts" beforeDir="false" afterPath="$PROJECT_DIR$/card/application/repository/cardRepository.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/card/application/enum/categoryEnum.ts" beforeDir="false" afterPath="$PROJECT_DIR$/card/application/enum/categoryEnum.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/card/application/service/getCardsByCategoryAndDate.ts" beforeDir="false" afterPath="$PROJECT_DIR$/card/application/service/getCardsByCategoryAndDate.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/card/application/useCases/answerCardUseCase.ts" beforeDir="false" afterPath="$PROJECT_DIR$/card/application/useCases/answerCardUseCase.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/card/application/useCases/createCardWithUserIdUseCase.ts" beforeDir="false" afterPath="$PROJECT_DIR$/card/application/useCases/createCardWithUserIdUseCase.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/card/application/useCases/getQuizzByDayUseCase.ts" beforeDir="false" afterPath="$PROJECT_DIR$/card/application/useCases/getQuizzByDayUseCase.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/card/infrastructure/database/data/card.json" beforeDir="false" afterPath="$PROJECT_DIR$/card/infrastructure/database/data/card.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/card/infrastructure/database/jsonHandler.ts" beforeDir="false" afterPath="$PROJECT_DIR$/card/infrastructure/database/jsonHandler.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/card/infrastructure/repository/jsonCardRepository.ts" beforeDir="false" afterPath="$PROJECT_DIR$/card/infrastructure/repository/jsonCardRepository.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/card/interface/controller/cardController.ts" beforeDir="false" afterPath="$PROJECT_DIR$/card/interface/controller/cardController.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/card/interface/http/cardRoutes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/card/interface/http/cardRoutes.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/infrastructure/database/data/user.json" beforeDir="false" afterPath="$PROJECT_DIR$/user/infrastructure/database/data/user.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/tests/userController.test.ts" beforeDir="false" afterPath="$PROJECT_DIR$/user/tests/userController.test.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -163,6 +160,21 @@
         <option value="$PROJECT_DIR$/user/interface/http/service/isValidLoginRequest.js" />
         <option value="$PROJECT_DIR$/user/interface/http/service/isValidUserRequest.js" />
         <option value="$PROJECT_DIR$/card/interface/http/service/isValidCardUserData.js" />
+        <option value="$PROJECT_DIR$/user/infrastructure/repository/jsonUserRepository.js" />
+        <option value="$PROJECT_DIR$/user/interface/http/service/isValidLoginRequest.js" />
+        <option value="$PROJECT_DIR$/user/interface/http/service/isValidUserRequest.js" />
+        <option value="$PROJECT_DIR$/user/interface/http/userRoutes.js" />
+        <option value="$PROJECT_DIR$/user/application/usesCases/createUser.js" />
+        <option value="$PROJECT_DIR$/user/application/usesCases/loginUser.js" />
+        <option value="$PROJECT_DIR$/user/infrastructure/database/jsonHandler.js" />
+        <option value="$PROJECT_DIR$/index.js" />
+        <option value="$PROJECT_DIR$/user/interface/controller/userController.js" />
+        <option value="$PROJECT_DIR$/user/tests/userController.test.js" />
+        <option value="$PROJECT_DIR$/user/application/repository/userRepository.js" />
+        <option value="$PROJECT_DIR$/user/application/dto/request/createUserRequest.js" />
+        <option value="$PROJECT_DIR$/user/application/dto/request/loginUserRequest.js" />
+        <option value="$PROJECT_DIR$/user/application/dto/request/createUserToDatabase.js" />
+        <option value="$PROJECT_DIR$/user/application/dto/request/loginUserToDatabase.js" />
       </list>
     </option>
   </component>
