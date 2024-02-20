@@ -6,7 +6,8 @@ To start the project, install npm dependencies and run the start script.
 npm install && npm run build && npm run start
 ```
 
-The project will be running on http://localhost:3000
+The project will be running on http://localhost:3000.
+To open the front interface, just open the index.html file in the browser.
 
 To run tests, run the test script.
 
@@ -30,6 +31,10 @@ Nous avons mis en place un système assez poussé concernant l'intégration du u
 Le taux de couverture des tests est très faible, nous en sommes conscients. 
 Cependant, nous avions prévu de rendre le projet pour la date prévue du 20 février. Nos plans n'ont alors pas pu s'adapter au dernier changement quelques heures avant le rendu. Nous pensons qu'avec 9 heures en plus par personne, nous aurions pu finir le projet, ou au moins assurer une meilleure 
 couverture de tests. 
+Nous ne pourrons donc pas travailler sur ce projet après ce 20 février dû à d'autres échéances et des indisponibilités.
+Dans l'idéal, il aurait fallu améliorer 3 axes principaux :
+- La couverture des tests
+- L'ajout du module Quiz qui aurait permis de gérer la limitation d'un quiz par jour et par personne notamment
+- Plus d'injection de dépendance et d'inversion de dépendance pour rendre le code plus modulable, plus facilement testable.
 
 Nous espérons que vous comprendrez notre situation, et que vous apprécierez notre travail.
-
